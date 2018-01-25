@@ -8,7 +8,7 @@ from nio.properties import VersionProperty, FileProperty, BoolProperty
 class Picamera(Block):
 
     version = VersionProperty('0.1.0')
-    image = FileProperty(title='Image', default='image')
+    image = FileProperty(title='Image(.jpg added by default)', default='image')
     preview = BoolProperty(title='Open Preview Window', default=False)
     count = 0
 
@@ -25,9 +25,8 @@ class Picamera(Block):
             self.count += 1
         self.notify_signals(signals)
 
-
     def stop(self):
         if self.preview:
-            self.camera.start_preview()
+            self.camera.stop_preview()
         self.camera.close()
         super().stop()

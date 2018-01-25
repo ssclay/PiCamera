@@ -17,7 +17,7 @@ class TestPicamera(NIOBlockTestCase):
 
     def test_capture(self):
         blk = Picamera()
-        self.configure_block(blk, {})
+        self.configure_block(blk, {'image': 'medge'})
         blk.start()
         blk.process_signals([Signal({"hi": "there"})])
         blk.stop()
@@ -27,3 +27,16 @@ class TestPicamera(NIOBlockTestCase):
             {"hi": "there"})
         blk.camera.capture.assert_called()
         blk.camera.close.assert_called()
+        
+    def test_preview(self):
+        blk = Picamera()
+        self.configure_block(blk, {'preview': True})
+        blk.start()
+        blk.process_signals([Signal({"hi": "there"})])
+        blk.stop()
+        self.assert_num_signals_notified(1)
+        self.assertDictEqual(
+            self.last_notified[DEFAULT_TERMINAL][0].to_dict(),
+            {"hi": "there"})
+        blk.camera.start_preview.assert_called()
+        blk.camera.stop_preview.assert_called()
