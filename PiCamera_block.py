@@ -1,22 +1,23 @@
-from datetime import datetime
+from time import sleep
 from picamera import PiCamera
 
 from nio.block.base import Block
-from nio.properties import VersionProperty, FileProperty, BoolProperty
+from nio.properties import VersionProperty, StringProperty, BoolProperty
 
 
 class Picamera(Block):
 
     version = VersionProperty('0.1.0')
-    image = FileProperty(title='Image(.jpg added by default)', default='image')
+    image = StringProperty(title='jpg name', default='image')
     preview = BoolProperty(title='Open Preview Window', default=False)
     count = 0
-
+    
     def configure(self, context):
         super().configure(context)
         self.camera = PiCamera()
         if self.preview:
             self.camera.start_preview()
+        sleep(2)
 
     def process_signals(self, signals):
         for signal in signals:
