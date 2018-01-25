@@ -28,3 +28,4 @@ class TestPicamera(NIOBlockTestCase):
             self.last_notified[DEFAULT_TERMINAL][0].to_dict(),
             {"hello": "nio"})
         blk.camera.capture.assert_called()
+        blk.camera.close.assert_called()
