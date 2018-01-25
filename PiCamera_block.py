@@ -2,7 +2,7 @@ from datetime import datetime
 from picamera import PiCamera
 
 from nio.block.base import Block
-from nio.properties import VersionProperty, FileProperty, BoolProperty 
+from nio.properties import VersionProperty, FileProperty, BoolProperty
 
 
 class Picamera(Block):
@@ -13,10 +13,10 @@ class Picamera(Block):
     count = 0
 
     def configure(self, context):
-    	super().configure(context)
-    	self.camera = PiCamera()
-    	if self.preview:
-    		self.camera.start_preview()
+        super().configure(context)
+        self.camera = PiCamera()
+        if self.preview:
+            self.camera.start_preview()
 
     def process_signals(self, signals):
         for signal in signals:
@@ -27,7 +27,7 @@ class Picamera(Block):
 
 
     def stop(self):
-    	if self.preview:
-    		self.camera.start_preview()
-    	self.camera.close()
-    	super().stop()
+        if self.preview:
+            self.camera.start_preview()
+        self.camera.close()
+        super().stop()
