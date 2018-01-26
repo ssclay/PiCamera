@@ -21,8 +21,8 @@ class Filetypes(Enum):
 class Picamera(Block):
 
     version = VersionProperty('0.1.0')
-    name = StringProperty(title='Image Name')
-    file_type = SelectProperty(Filetypes, title='file_type',
+    file_name = StringProperty(title='Image Name', default='image')
+    file_type = SelectProperty(Filetypes, title='File Type',
                                default=Filetypes.JPEG)
     preview = BoolProperty(title='Open Preview Window', default=False)
     count = 0
@@ -36,7 +36,7 @@ class Picamera(Block):
 
     def process_signals(self, signals):
         for signal in signals:
-            image_name = '{}_{}.{}'.format(self.name(), self.count, self.file_type().value)
+            image_name = '{}_{}.{}'.format(self.file_name(), self.count, self.file_type().value)
             self.camera.capture('{}'.format(image_name), format=self.file_type().value)
             self.count += 1
         self.notify_signals(signals)
