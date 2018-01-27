@@ -1,40 +1,38 @@
 {
-  "namespace/BlockName": {
-    "version": "1.0.0",
-    "description": "Description of the block.",
+  "nio/Picamera": {
+    "version": "0.1.0",
+    "description": "",
+    "categories": [],
     "properties": {
-      "<property1>": {
-        "description": "Required description of the property"
+      "file_name": {
+        "title": "Image Name",
+        "type": "StringType",
+        "description": "",
+        "default": "image"
       },
-      "<property2>": {
-        "default": "Optional metadata with any key.",
-        "description": "Required description of the property"
+      "file_type": {
+        "title": "File Type",
+        "type": "SelectType",
+        "description": "",
+        "default": "jpeg"
+      },
+      "preview": {
+        "title": "Open Preview Window",
+        "type": "BoolType",
+        "description": "",
+        "default": false
       }
     },
     "inputs": {
-      "<input1 | default>": {
-        "description": "Required description of the input"
-      },
-      "<input2>": {
-        "description": "Required description of the input"
+      "default": {
+        "description": ""
       }
     },
     "outputs": {
-      "<output1 | default>": {
-        "description": "Required description of the output"
-      },
-      "<output2>": {
-        "description": "Required description of the output"
+      "default": {
+        "description": ""
       }
     },
-    "commands": {
-      "<command1>": {
-        "description": "Required description of the command",
-        "type": "Optional type and other metadata with any key."
-      },
-      "<command2>": {
-        "description": "Required description of the command"
-      }
-    }
+    "commands": {}
   }
 }
