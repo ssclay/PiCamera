@@ -2,35 +2,37 @@
   "nio/Picamera": {
     "version": "0.1.0",
     "description": "",
-    "categories": [],
+    "categories": [
+      "Hardware"
+    ],
     "properties": {
       "file_name": {
         "title": "Image Name",
         "type": "StringType",
-        "description": "",
+        "description": "The name to be used for saving each picture.",
         "default": "image"
       },
       "file_type": {
         "title": "File Type",
         "type": "SelectType",
-        "description": "",
+        "description": "The type of file to save the image as.",
         "default": "jpeg"
       },
       "preview": {
         "title": "Open Preview Window",
         "type": "BoolType",
-        "description": "",
+        "description": "If checked, a preview window will open on the Raspberry Pi that displays a real time stream of the camera.",
         "default": false
       }
     },
     "inputs": {
       "default": {
-        "description": ""
+        "description": "Any list of signals."
       }
     },
     "outputs": {
       "default": {
-        "description": ""
+        "description": "The same list of signals."
       }
     },
     "commands": {}
