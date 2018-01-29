@@ -3,7 +3,8 @@ from enum import Enum
 from picamera import PiCamera
 
 from nio.block.base import Block
-from nio.properties import VersionProperty, StringProperty, BoolProperty, SelectProperty
+from nio.properties import VersionProperty, StringProperty,\
+                           BoolProperty, SelectProperty
 
 
 class Filetypes(Enum):
@@ -17,6 +18,7 @@ class Filetypes(Enum):
     BGR = 'bgr'
     BGRA = 'bgra'
     RAW = 'raw'
+
 
 class Picamera(Block):
 
@@ -36,8 +38,10 @@ class Picamera(Block):
 
     def process_signals(self, signals):
         for signal in signals:
-            image_name = '{}_{}.{}'.format(self.file_name(), self.count, self.file_type().value)
-            self.camera.capture('{}'.format(image_name), format=self.file_type().value)
+            image_name = '{}_{}.{}'.format(
+                    self.file_name(), self.count, self.file_type().value)
+            self.camera.capture(
+                    '{}'.format(image_name), format=self.file_type().value)
             self.count += 1
         self.notify_signals(signals)
 
