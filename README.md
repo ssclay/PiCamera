@@ -20,3 +20,6 @@ Commands
 --------
 None
 
+Dependencies
+------------
+-**picamera**
