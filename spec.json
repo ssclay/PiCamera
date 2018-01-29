@@ -1,7 +1,7 @@
 {
   "nio/Picamera": {
     "version": "0.1.0",
-    "description": "",
+    "description": "The Picamera block will capture a picture using a PiCamera on a Raspberry Pi, and save it as the defined file type and name.",
     "categories": [
       "Hardware"
     ],
