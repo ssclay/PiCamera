@@ -29,7 +29,7 @@ class TestPicamera(NIOBlockTestCase):
             {"hi": "there"})
         blk.camera.capture.assert_called_with('pic_0.png', format='png')
         blk.camera.close.assert_called()
-        
+
     def test_preview(self):
         blk = Picamera()
         self.configure_block(blk, {'preview': True})
