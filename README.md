@@ -22,4 +22,4 @@ None
 
 Dependencies
 ------------
--**picamera**
+- picamera
