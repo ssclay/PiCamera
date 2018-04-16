@@ -32,7 +32,7 @@ class Picamera(Block):
     def configure(self, context):
         super().configure(context)
         self.camera = PiCamera()
-        if self.preview:
+        if self.preview():
             self.camera.start_preview()
         sleep(2)
 
